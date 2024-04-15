@@ -17,52 +17,48 @@ function getComputerChoice() {
     return y;
 }
 
+//create a function called getComputerChoice that will randomnly store the string "rock","paper",or "scissors"
+
 const computerSelection = getComputerChoice()
 // TEST   console.log("Computer: " + computerSelection)
 
-
-/*
-
-     //create a function called getComputerChoice that will randomnly store the string "rock","paper",or "scissors"
-
 function playRound(playerSelection, computerSelection) {
-    let x = playerSelection.slice(0,1).toUpperCase + playerSelection.slice(1).toLowerCase();
+    let x = playerSelection.slice(0,1).toUpperCase() + playerSelection.slice(1).toLowerCase();
+// TEST   console.log("User: " + x)
     let y = computerSelection;
-    if (x = "Rock") {
-            if (y = "Rock") {
-                let z = "It's a Tie! Rock matches Rock";     
-                return z;
-            } else if (y = "Paper") {
-                let z = "You Lose! Paper chomps Rock";     
-                return z;  
-            } else if (y = "Scissors") {
-                let z = "You Win! Rock destroys Scissors";
-                return z;
+// TEST   console.log("Computer: " + y)
+    let z;
+    if (x == "Rock") {
+            if (y == "Rock") {
+                z = "It's a Tie! Rock matches Rock";     
+            } else if (y == "Paper") {
+                z = "You Lose! Paper CHOMPS ON Rock";     
+            } else if (y == "Scissors") {
+                z = "You Win! Rock PULVERIZES Scissor";
             }
-        } else if(x = "Paper") {
-            if (y = "Rock") {
-                let z = "You Win! Paper imprisons Rock";     
-                return z;
-            } else if (y = "Paper") {
-                let z = "It's a Tie! Paper matches Paper";     
-                return z;  
-            } else if (y = "Scissors") {
-                let z = "You Lose! Scissors cut up Papers";
-                return z;
-        }} else if(x = "Scissors") {
-            if (y = "Rock") {
-                let z = "You Lose! Rock pulverises Scissors";     
-                return z;
-            } else if (y = "Paper") {
-                let z = "You Win! Scissors shanks Paper";     
-                return z;  
-            } else if (y = "Scissors") {
-                let z = "It's a tie! Scissors match Scissors";
-                return z;
-            }}
-    console.log(z);
+        } else if(x == "Paper") {
+            if (y == "Rock") {
+                z = "You Win! Paper SWALLOWS Rock";     
+            } else if (y == "Paper") {
+                z = "It's a Tie! Paper matches Paper";     
+            } else if (y == "Scissors") {
+                z = "You Lose! Scissors PIERCE Paper";
+            }
+        } else if(x == "Scissors") {
+            if (y == "Rock") {
+                z = "You Lose! Rock PULVERIZES Scissor";            
+            } else if (y == "Paper") {
+                z = "You Win! Scissors SHRED Paper";     
+            } else if (y == "Scissors") {
+                z = "It's a tie! Scissor matches Scissor";
+            }
+        }
     return z;
 } 
+
+console.log(playRound(playerSelection, computerSelection))
+
+/*
     //create a function named playRound that will play a single round of "rock", "paper", or "scissors".
     // the function will take two parameters - the playerSelection and computerSelection.
     //convert playerSelection (user input) to sentence case (rock, ROCK, rOcK = Rock)
