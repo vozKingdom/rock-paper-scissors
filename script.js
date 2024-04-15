@@ -8,7 +8,6 @@
 
 function getComputerChoice() {
     x = Math.floor(Math.random()*3);
-    let y; 
     if (x == 0) {
         return "Rock"
     } else if (x == 1) {
