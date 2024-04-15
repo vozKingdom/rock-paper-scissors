@@ -1,5 +1,7 @@
 
-const playerSelection = prompt('Rock, Paper, or Scissors?')       // PSEUDOCODE prompt user to input a string "rock", "paper", or "scissors", then store in constant variable playerSelection
+//const playerSelection = prompt('Rock, Paper, or Scissors?')       
+
+// COMMENT prompt user to input a string "rock", "paper", or "scissors", then store in constant variable playerSelection
 
 // TEST   console.log("User: " + playerSelection.slice(0,1).toUpperCase() + playerSelection.slice(1).toLowerCase())   
 
@@ -8,19 +10,20 @@ function getComputerChoice() {
     x = Math.floor(Math.random()*3);
     let y; 
     if (x == 0) {
-        y = "Rock"
+        return "Rock"
     } else if (x == 1) {
-        y = "Paper"
+        return "Paper"
     } else if (x == 2) {
-        y = "Scissors"
+        return "Scissors"
     }
-    return y;
 }
 
-//create a function called getComputerChoice that will randomnly store the string "rock","paper",or "scissors"
+//COMMENT create a function called getComputerChoice that will randomnly store the string "rock","paper",or "scissors"
 
-const computerSelection = getComputerChoice()
-// TEST   console.log("Computer: " + computerSelection)
+
+
+//const computerSelection = getComputerChoice()
+
 
 function playRound(playerSelection, computerSelection) {
     let x = playerSelection.slice(0,1).toUpperCase() + playerSelection.slice(1).toLowerCase();
@@ -56,26 +59,67 @@ function playRound(playerSelection, computerSelection) {
     return z;
 } 
 
-console.log(playRound(playerSelection, computerSelection))
+// TEST   console.log(playRound(playerSelection, computerSelection))
 
-/*
-    //create a function named playRound that will play a single round of "rock", "paper", or "scissors".
-    // the function will take two parameters - the playerSelection and computerSelection.
-    //convert playerSelection (user input) to sentence case (rock, ROCK, rOcK = Rock)
-    //create if..else statements, of "rock", "paper", or "scissors" combinations.
-    //return a string that declares the winner or tie of the round like so: "You Lose! Paper beats Rock"
-    // Display the result of the round on console.
+
+    // COMMENT create a function named playRound that will play a single round of "rock", "paper", or "scissors".
+    // COMMENT the function will take two parameters - the playerSelection and computerSelection.
+    // COMMENT convert playerSelection (user input) to sentence case (rock, ROCK, rOcK = Rock)
+    // COMMENT create if..else statements, of "rock", "paper", or "scissors" combinations.
+    // COMMENT return a string that declares the winner or tie of the round like so: "You Lose! Paper beats Rock"
+    // COMMENT Display the result of the round on console.
+
 
 function playGame() {
-    playRound(playerSelection, computerSelection)
-    playRound(playerSelection, computerSelection)
-    playRound(playerSelection, computerSelection)
-    playRound(playerSelection, computerSelection)
-    playRound(playerSelection, computerSelection)
-}
 
-    //create a function named playGame that will: playRound five times, and keeps score and reports a winner or loser at the end.
+    let playerSelection = prompt('Rock, Paper, or Scissors?') 
+
+    let computerSelection = getComputerChoice()
 
 
-console.log(playRound(playerSelection, computerSelection));
-*/
+
+    let z;
+    z = playRound(playerSelection, computerSelection);
+    console.log(z);
+
+    scoreboard(z);
+
+        function scoreboard(z) {
+            s = z.at(4)
+            wlt(s);
+        }
+        
+        function wlt(s) { 
+        if (s == 'W') {
+            let W = 0; 
+            let L = 0;
+            let T = 0;
+            return console.log(`Wins: ${W+1} Losses: ${L} Ties: ${T}`)
+        } else if (s == 'L') {
+            let W = 0; 
+            let L = 0;
+            let T = 0;
+            return console.log(`Wins: ${W} Losses: ${L+1} Ties: ${T}`)
+        } else if (s == ' ') {
+            let W = 0; 
+            let L = 0;
+            let T = 0;
+            return console.log(`Wins: ${W} Losses: ${L} Ties: ${T+1}`)
+        }
+        }
+
+    }
+
+
+
+
+    //COMMENT create a function named playGame that will: playRound five times, and keeps score and reports a winner or loser at the end.
+
+
+// TEST console.log(playRound(playerSelection, computerSelection));
+
+console.log(playGame());
+console.log(playGame());
+console.log(playGame());
+console.log(playGame());
+console.log(playGame());
