@@ -1,6 +1,6 @@
 
 
-function getComputerChoice() {  //  Create a function called getComputerChoice that will determine a random choice (rock paper scissor) for the computer.
+function getComputerChoice() {  
     randomComputerChoice = Math.floor(Math.random()*3); // Pick a random  number from 0 to 2, and store it in a variable called randomComputerChoice.
     if (randomComputerChoice == 0) {    // IF random number is 0 THEN   
         return "ROCK"   //  RETURN 'ROCK' selection, and END function execution 
@@ -13,7 +13,7 @@ function getComputerChoice() {  //  Create a function called getComputerChoice t
 
 
 function playRound(playerSelection, computerSelection) {    // Create a function called playRound that will play a single round of "rock paper scissors". the function will take two parameters - the playerSelection and computerSelection.
-    playerSelection = playerSelection.toUpperCase();    //  Convert players selection to uppercase
+    playerSelectionUppercase = playerSelection.toUpperCase();    //  Convert players selection to uppercase
 
     if (    // IF the computers selection wins THEN
     (computerSelection == "ROCK" && playerSelection == "SCISSOR") ||  
