@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {    // Create a function called playRound that will play a single round of "rock paper scissors". the function will take two parameters - the playerSelection and computerSelection.
-    playerSelectionUppercase = playerSelection.toUpperCase();    //  Convert players selection to uppercase
+    playerSelection = playerSelection.toUpperCase();    //  Convert players selection to uppercase
 
     if (    // IF the computers selection wins THEN
     (computerSelection == "ROCK" && playerSelection == "SCISSOR") ||  
@@ -39,8 +39,12 @@ function playGame() {   //  Create a function called playGame that will ...
     }
 
 
+
+    
+/*
 console.log(playGame());
 console.log(playGame());
 console.log(playGame());
 console.log(playGame());
 console.log(playGame());
+*/
