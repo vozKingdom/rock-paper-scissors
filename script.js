@@ -1,3 +1,45 @@
+const btnPlayerSelection = document.querySelector('.btnPlayerSelection');
+const paraResult = document.querySelector('.paraResult')
+
+btnPlayerSelection.addEventListener('click', playGame)
+
+
+function playGame(event){
+    let playerSelection = event.target.className;
+    let computerSelection = getComputerChoice()
+
+    playRound(playerSelection, computerSelection);
+
+    if (playerScore === 5) {
+        paraResult.textContent ='👑👑👑 GAMEOVER! 👑👑👑 YOU WON!'
+        resetGame();
+    } else if (computerScore === 5) {
+        paraResult.textContent ='❤️‍🔥❤️‍🔥❤️‍🔥 GAMEOVER! ❤️‍🔥❤️‍🔥❤️‍🔥 COMPUTER WINS!'
+        resetGame();
+    }
+}
+
+
+const paraPlayerScore = document.querySelector('.playerScore')
+const paraComputerScore = document.querySelector('.computerScore')
+const paraTie = document.querySelector('.tieScore')
+
+
+let playerScore = 0
+let computerScore = 0
+let tie = 0
+
+
+
+function resetGame(){
+    playerScore = 0
+    computerScore = 0
+    tie = 0 
+
+    paraComputerScore.textContent = 'Computer: ' + computerScore; 
+    paraPlayerScore.textContent = 'Player: ' + playerScore;
+    paraTie.textContent = 'Tie: ' + tie;
+}
 
 
 function getComputerChoice() {  
@@ -12,6 +54,7 @@ function getComputerChoice() {
 }
 
 
+
 function playRound(playerSelection, computerSelection) {    // Create a function called playRound that will play a single round of "rock paper scissors". the function will take two parameters - the playerSelection and computerSelection.
     playerSelection = playerSelection.toUpperCase();    //  Convert players selection to uppercase
 
@@ -19,32 +62,23 @@ function playRound(playerSelection, computerSelection) {    // Create a function
     (computerSelection == "ROCK" && playerSelection == "SCISSOR") ||  
     (computerSelection == "PAPER" && playerSelection == "ROCK") || 
     (computerSelection == "SCISSOR" && playerSelection == "PAPER")) 
-        { return "COMPUTER WIN!";   // RETURN 'COMPUTER WIN' string, and END function execution
+        { paraResult.textContent = "COMPUTER WIN!";
+        ++computerScore
+        paraComputerScore.textContent = 'Computer: ' + computerScore; 
+        return;    // RETURN 'COMPUTER WIN' string, and END function execution
     } else if (     // ELSE IF the players selection wins 
     (playerSelection == "ROCK" && computerSelection == "SCISSOR") ||  
     (playerSelection == "PAPER" && computerSelection == "ROCK") || 
     (playerSelection == "SCISSOR" && computerSelection == "PAPER")) 
-        { return "PLAYER WIN";     // RETURN 'PLAYER WIN' string, and END function execution
+        { paraResult.textContent = "PLAYER WIN!";
+        playerScore = playerScore + 1
+        paraPlayerScore.textContent = 'Player: ' + playerScore;  
+        return;     // RETURN 'PLAYER WIN' string, and END function execution
     } else if (     // ELSE IF the game ends in a tie
     (playerSelection == computerSelection))
-        { return "TIE"  // RETURN 'TIE' string, and END function execution
+        { paraResult.textContent = "TIE!"
+        ++tie
+        paraTie.textContent = 'Tie: ' + tie
+        return;  // RETURN 'TIE' string, and END function execution
     }
 } 
-
-
-function playGame() {   //  Create a function called playGame that will ...
-    let playerSelection = prompt('ROCK  PAPER  SCISSOR ?')  //  OBTAIN the players choice for the game and store in a variable called playerSelection
-    let computerSelection = getComputerChoice()     //  OBTAIN the computers choice and store in a variable called computerSelection   
-    console.log(playRound(playerSelection, computerSelection)); // PRINT result of game onto browser console
-    }
-
-
-
-    
-/*
-console.log(playGame());
-console.log(playGame());
-console.log(playGame());
-console.log(playGame());
-console.log(playGame());
-*/
